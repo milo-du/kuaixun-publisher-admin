@@ -2,11 +2,12 @@
  * @Author: Milodu
  * @Date:   2017-06-22 11:57:03
  * @Last Modified by:   Milodu
- * @Last Modified time: 2017-07-10 16:59:26
+ * @Last Modified time: 2017-07-21 15:37:31
  */
 
 var express = require("express");
 var webpackDevMiddleware = require("webpack-dev-middleware");
+var history = require('connect-history-api-fallback');
 var webpack = require("webpack");
 var webpackConfig = require("./webpack.base.conf.js");
 var config = require('../config');

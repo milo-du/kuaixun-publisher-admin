@@ -2,20 +2,19 @@
  * @Author: Milodu
  * @Date:   2017-07-04 18:17:44
  * @Last Modified by:   Milodu
- * @Last Modified time: 2017-07-17 20:46:47
+ * @Last Modified time: 2017-07-21 16:51:54
  */
 
 import React, { Component, PropTypes } from 'react';
-import css from "../static/less/add-todo.less";
 
 export default class AddTodo extends Component {  
 
   componentWillMount() {
-    css.use();
+    
   }
 
   componentWillUnmount() {    
-    css.unuse();    
+    
   }
 
   render() {
@@ -38,5 +37,5 @@ export default class AddTodo extends Component {
 }
 
 AddTodo.propTypes = {
-  onAddClick: PropTypes.func.isRequired
+  
 }

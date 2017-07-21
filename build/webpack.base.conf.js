@@ -2,7 +2,7 @@
  * @Author: Milodu
  * @Date:   2017-06-21 15:34:26
  * @Last Modified by:   Milodu
- * @Last Modified time: 2017-07-17 20:45:17
+ * @Last Modified time: 2017-07-21 17:57:42
  */
 
 'use strict';
@@ -27,6 +27,7 @@ module.exports = {
             'react',
             'react-dom',
             'redux',
+            'antd',
             'react-redux'
         ],
         app: ['webpack/hot/dev-server', 'webpack-hot-middleware/client', './src/main.js']
@@ -45,8 +46,18 @@ module.exports = {
     module: {
         rules: [{
             test: /\.js[x]?$/,
-            loaders: ['babel-loader?presets[]=es2015&presets[]=react'],
-            include: [resolve('src'), resolve('test')]
+            loaders: 'babel-loader',
+            include: [resolve('src'), resolve('test')],
+            options: {
+                presets: ['es2015', 'react'],
+                plugins: [
+                    ["import", {
+                        libraryName: "antd",
+                        style: "css"
+                    }]
+                ],
+                cacheDirectory: true,
+            }
         }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             loader: 'url-loader',
@@ -55,8 +66,8 @@ module.exports = {
                 name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
             }
         }, {
-            test: /\.less$/,
-            loaders:['style-loader/useable','css-loader','less-loader']            
+            test: /\.(less|css)$/,
+            loaders: ['style-loader', 'css-loader', 'less-loader']
         }]
     },
     plugins: [
@@ -64,7 +75,9 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(),
         //new webpack.optimize.UglifyJsPlugin(),
         new webpack.optimize.CommonsChunkPlugin('vendor'),
-        new HtmlWebpackPlugin({ template: './src/index.html' }),
+        new HtmlWebpackPlugin({
+            template: './src/index.html'
+        }),
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production'),

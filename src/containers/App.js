@@ -2,7 +2,7 @@
  * @Author: Milodu
  * @Date:   2017-07-04 15:27:19
  * @Last Modified by:   Milodu
- * @Last Modified time: 2017-07-17 20:46:53
+ * @Last Modified time: 2017-07-21 17:40:04
  */
 
 import React, { Component, PropTypes } from 'react'
@@ -19,7 +19,6 @@ class App extends Component {
     const { dispatch, visibleTodos, visibilityFilter } = this.props
     return (
       <div>      
-        <Login />  
         <AddTodo
           onAddClick={text =>
             dispatch(addTodo(text))
@@ -62,8 +61,7 @@ function selectTodos(todos, filter) {
   }
 }
 
-// Which props do we want to inject, given the global state?
-// Note: use https://github.com/faassen/reselect for better performance.
+
 function select(state) {
   return {
     visibleTodos: selectTodos(state.todos, state.visibilityFilter),
