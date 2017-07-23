@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>账户充值</title>
+
+    <!-- build:css(src) /static/css/edit-base.css -->
+    <link rel="stylesheet" type="text/css" href="/static/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bower_components/animate.css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/admin.css">
+    <link rel="stylesheet" type="text/css" href="/static/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+    <link rel="stylesheet" type="text/css" href="/static/bower_components/cropper/css/cropper.css">
+    <link rel="stylesheet" type="text/css" href="/static/bower_components/zoom.js/css/zoom.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <!-- endbuild -->    
+</head>
+<body>
+    <div class="main-content fadeIn animated" id="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header" id="title">账户充值</h2>
+            </div>
+            <!-- /.col-lg-12 --> </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <form class="form-horizontal" id="form" role="form" style="text-align:center;">
+                    <div class="loading">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/template" id="appTpl">        
+     <!--    <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">昵称：</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="name" name="name" placeholder="请填写名称（必填）" required="required"
+                 value="<%=info.name%>" /></div>
+        </div>
+        <div class="form-group">
+            <label for="input" class="col-sm-2 control-label">头像：</label>
+            <div class="col-sm-2">
+                <div id="container">
+                    <button class="btn btn-default" data-action="showpickfile" href="javascript:void(0)" > <i class="glyphicon glyphicon-plus"></i>
+                        <span>选择文件</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" id="container">
+            <label for="formUrl" class="col-sm-2 control-label">头像预览：</label>
+            <div class="col-sm-5">
+                <img src="<%=info.photo%>        
+                " data-action="zoom" onerror="this.onerror=null;this.src=\'/static/images/perform-default-cover.png\'" class="img-responsive" id="prview-img" alt="Image">
+            </div>
+        </div>        
+        <div class="form-group">
+            <label for="input" class="col-sm-2 control-label">密码：</label>
+            <div class="col-sm-5">
+                <input type="password" name="pwd1" id="pwd1" class="form-control" value="" required="required"></div>
+        </div>
+        <div class="form-group">
+            <label for="input" class="col-sm-2 control-label">确认密码：</label>
+            <div class="col-sm-5">
+                <input type="password" name="pwd" id="pwd" class="form-control" value="" required="required"></div>
+        </div>  
+        <div class="form-group">
+            <label for="input" class="col-sm-2 control-label">登录名：</label>
+            <div class="col-sm-5">
+                <input type="text" name="login_name" id="login_name" class="form-control" value="<%=info.login_name%>" required="required"></div>
+        </div>
+        <div class="form-group">
+            <label for="input" class="col-sm-2 control-label">是否管理员：</label>
+            <div class="col-sm-5 radio">
+                <label>
+                    <input type="radio" name="is_admin" <%=info.is_admin==1?'checked="checked"':''%> value="1">是</label>
+                <label>
+                    <input type="radio" name="is_admin" value="0" <%=info.is_admin==0?'checked="checked"':''%>>否</label>                  
+            </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-5 mt20 text-right">
+            <button type="reset" class="btn btn-default">取消</button>
+            <button type="submit" class="btn btn-info ml20" id="submit">确认</button>
+          </div>
+        </div>
+        <div style="height:30px;"></div> -->        
+        <img src="/static/images/pay_qrcode.jpg" style="width:300px;margin:0 auto" />
+        <div class="panel panel-default mt35">
+            <div class="panel-body">
+                请支付宝转账充值，备注您的充值手机号
+            </div>
+        </div>                
+    </script>
+
+    <!-- build:js(src) /static/js/edit-common.js -->
+    <script type="text/javascript" src="/static/js/page.js"></script>
+    <script type="text/javascript" src="/static/bower_components/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+    <script type="text/javascript" src="/static/js/system.js"></script>
+    <script type="text/javascript" src="/static/bower_components/fex-webuploader/dist/webuploader.min.js"></script>
+    <script type="text/javascript" src="/static/bower_components/moment/min/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="/static/bower_components/moment/locale/zh-cn.js"></script>
+    <script type="text/javascript" src="/static/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>    
+    <script type="text/javascript" src="/static/bower_components/plupload/js/plupload.full.min.js"></script>
+    <script type="text/javascript" src="/static/bower_components/plupload/js/i18n/zh_CN.js"></script>
+    <script type="text/javascript" src="/static/bower_components/qiniu/dist/qiniu.min.js"></script>
+    <script type="text/javascript" src="/static/bower_components/zoom.js/js/zoom.js"></script>
+    <script type="text/javascript" src="/static/bower_components/cropper/js/cropper.js"></script>
+    <script type="text/javascript" src="/static/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js(src) /static/js/acount-recharge.js -->
+    <script type="text/javascript" src="/static/js/pages/acount-recharge.js"></script>
+    <!-- endbuild -->
+</body>
+</html>
