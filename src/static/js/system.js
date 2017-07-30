@@ -51,7 +51,7 @@
 	};
 
 	System.api = {
-		url: location.host.indexOf('fabu.kuanxuntech.com') > -1 ? '//api.kuanxuntech.com/' : '//127.0.0.1:88/'
+		url: location.host.indexOf('p.runningdreamer.com') > -1 ? '//api2.runningdreamer.com/' : '//127.0.0.1:999/'
 	};
 
 	Date.prototype.format = function(format) {
