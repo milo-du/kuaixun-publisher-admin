@@ -8,8 +8,9 @@ $(function() {
             })
             .done(function(response) {
                 if (response.ret == 0) {
-                    var user = response.data;                    
-                    $('#userInfo').show().find('[node-type="nick"]').text(user.phone);
+                    var user = response.data;
+                    var showInfo = '%s；账户余额：%s；今天单条单价：%s元'.printf(user.phone, user.amount, user.price);
+                    $('#userInfo').show().find('[node-type="nick"]').text(showInfo);
                     System.localStorage.set('user', user);
                     $('#wrapper').removeClass('blur');
                 } else {
@@ -51,10 +52,10 @@ $(function() {
         //     type: 'post',
         //     url: 'manage/logout'
         // }).done(function() {
-            System.localStorage.del('auth');
-            bootbox.alert('退出成功', function() {
-                System.redirect('/login.html');
-            });
+        System.localStorage.del('auth');
+        bootbox.alert('退出成功', function() {
+            System.redirect('/login.html');
+        });
         // });
     });
 
