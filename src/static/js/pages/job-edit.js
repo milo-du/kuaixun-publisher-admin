@@ -140,7 +140,7 @@ $(function() {
 					text: '请输入标题'
 				});
 				return;
-			}						
+			}
 			if ($.trim(formData.link).length == 0) {
 				$.toast({
 					icon: 'error',
@@ -148,20 +148,20 @@ $(function() {
 				});
 				return;
 			}
-			if ($.trim(formData.initReadCount).length == 0) {
-				$.toast({
-					icon: 'error',
-					text: '请输入初始阅读量'
-				});
-				return;
-			}
+			// if ($.trim(formData.initReadCount).length == 0) {
+			// 	$.toast({
+			// 		icon: 'error',
+			// 		text: '请输入初始阅读量'
+			// 	});
+			// 	return;
+			// }
 			if ($.trim(formData.endReadCount).length == 0) {
 				$.toast({
 					icon: 'error',
-					text: '请输入endReadCount'
+					text: '请输入任务阅读量'
 				});
 				return;
-			}			
+			}
 			nodes.submit.prop('disabled', true);
 			return System.request({
 					type: 'POST',
